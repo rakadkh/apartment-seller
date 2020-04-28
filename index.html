@@ -33,11 +33,29 @@
 
     <hr>
 
-    <div id="results"></div>
+    <div id="result"></div>
 
-    <!-- Your Code Here -->
-    <!-- You should start doing handlebar stuff here -->
-    <!-- Your Code Here -->
+    <script id="apartments-template" type="text/x-handlebars-template">   
+        {{#each data}}
+        <div class="result">
+           <img src="{{img}}">
+           <label class="l-addr">address:</label> <p class="address"> {{ address }} </p>
+           <label class="l-price">price:</label> <p class="price">{{ price }} Dollars </p>
+           <label class="l-rooms">rooms:</label><p class="rooms">{{ rooms }}</p> 
+           {{#if parking}}
+              <label class="fas fa-parking"></label>
+              <br>
+           {{/if}}
+           {{#if immediate}}
+              <label class="l-immediate">Contact us:</label> <p class="immediate">{{ contactDetails.name }}: {{contactDetails.email}} </p>
+           {{/if}}
+           {{#each features}}
+              <p id="DD">{{this}}</p>
+           {{/each}}
+        </div>
+        {{/each}}
+    </script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
@@ -45,5 +63,4 @@
     <script src="apt-filter.js"></script>
     <script src="main.js"></script>
 </body>
-
 </html>
